@@ -1,6 +1,6 @@
 # Youtube Comment Searcher
 
-** Disclaimer: This app is not built for production, this is made for learning purposes**
+**Disclaimer: This app is not built for production, this is made for learning purposes**
 
 Feel free to use / modify it as you wish
 
