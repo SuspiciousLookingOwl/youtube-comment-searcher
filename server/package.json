@@ -1,0 +1,31 @@
+{
+	"name": "api",
+	"version": "0.0.1",
+	"description": "",
+	"main": "dist/app.js",
+	"scripts": {
+		"start": "node .",
+		"dev": "nodemon",
+		"build": "tsc",
+		"test": "jest"
+	},
+	"author": "SuspiciousLookingOwl",
+	"license": "MIT",
+	"dependencies": {
+		"@elastic/elasticsearch": "^7.11.0",
+		"cors": "^2.8.5",
+		"elastic-builder": "^2.12.0",
+		"express": "^4.17.1",
+		"youtubei": "0.0.1-rc.13"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.10",
+		"@types/express": "^4.17.11",
+		"@typescript-eslint/eslint-plugin": "^4.16.1",
+		"@typescript-eslint/parser": "^4.16.1",
+		"dotenv": "^8.2.0",
+		"eslint": "^7.21.0",
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.2"
+	}
+}

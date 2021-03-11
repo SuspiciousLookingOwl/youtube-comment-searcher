@@ -1,0 +1,41 @@
+version: "3.6"
+services:
+  web:
+    container_name: web
+    build: ./web
+    environment:
+      - REACT_APP_API_PORT=$API_PORT
+    ports:
+      - $WEB_PORT:80
+  api:
+    container_name: api
+    build: ./server
+    ports:
+      - $API_PORT:$API_PORT
+    environment:
+      - PORT=$API_PORT
+      - ES_HOSTNAME=es
+      - ELASTICSEARCH_USERNAME=$ELASTICSEARCH_USERNAME
+      - ELASTICSEARCH_PASSWORD=$ELASTICSEARCH_PASSWORD
+      - NODE_ENV=production
+    depends_on:
+      - es
+    links:
+      - es
+    networks:
+      - app_network
+  es:
+    container_name: es
+    image: amazon/opendistro-for-elasticsearch:1.13.1
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    networks:
+      - app_network
+volumes:
+  es_data:
+    driver: local
+networks:
+  app_network:
+    driver: bridge
